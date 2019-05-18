@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "538790919807",
+    "firebase_url": "https://runroute-6e2cf.firebaseio.com",
+    "project_id": "runroute-6e2cf",
+    "storage_bucket": "runroute-6e2cf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:538790919807:android:9d1a0e051d859808",
+        "android_client_info": {
+          "package_name": "com.example.runroute"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "538790919807-h3467dh432jucise35t1c3buapa1iuno.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqV6l17K2_eE_kbmqEYRBHsPlK7ZVeo-E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "538790919807-h3467dh432jucise35t1c3buapa1iuno.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
