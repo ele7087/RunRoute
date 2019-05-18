@@ -1,9 +1,9 @@
 package com.example.runroute;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -19,10 +19,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.GoogleAuthCredential;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.squareup.picasso.Picasso;
 
@@ -95,13 +93,14 @@ public class MainActivity extends AppCompatActivity {
 
         AuthCredential credential = GoogleAuthProvider
                 .getCredential(account.getIdToken(), null);
-        Task<AuthResult> authResultTask = mAuth.signInWithCredential(credential)
+        mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
                         progressBar.setVisibility(View.INVISIBLE);
                         Log.d("TAG", "signin success");
 
                         FirebaseUser user = mAuth.getCurrentUser();
+                        updateUI(user);
                     } else {
                         progressBar.setVisibility(View.INVISIBLE);
                         Log.w("TAG" , "signin failure", task.getException());
@@ -125,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
             text.append(email);
 
             Picasso.get().load(photo).into(image);
-            btn_login.setVisibility(View.INVISIBLE);
+            btn_login.setVisibility(View.VISIBLE);
             btn_logout.setVisibility(View.INVISIBLE);
 
 
