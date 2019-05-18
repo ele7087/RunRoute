@@ -2,5 +2,6 @@
     <string name="app_name">RunRoute</string>
     <string name="title_activity_maps">Map</string>
     <string name="google_map_api_key"> AIzaSyBLGQ8JpPsXOmwbkBrjMsa4U8Hou84CRnA </string>
-    <string name="login">Login</string>
+    <string name="login_with_google">Login With Google</string>
+    <string name="logout">Logout</string>
 </resources>
