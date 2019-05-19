@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     static final int GOOGLE_SIGN = 123;
     FirebaseAuth mAuth;
-    Button btn_login, btn_logout;
+    Button btn_login, btn_logout, btn_join;
     TextView text;
     ImageView image;
     ProgressBar progressBar;
@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
         btn_login = findViewById(R.id.login);
         btn_logout = findViewById(R.id.logout);
+        btn_join = findViewById(R.id.join);
         text = findViewById(R.id.text);
         image = findViewById(R.id.image);
         progressBar = findViewById(R.id.progress_circular);
@@ -64,6 +65,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+    public void move_to_map(View view){
+        Intent startMaps = new Intent(this, MapsActivity.class);
+        startActivity(startMaps);
+    }
 
     void SignInGoogle(){
         progressBar.setVisibility(View.VISIBLE);
@@ -81,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 if (account!=null) firebaseAuthWithGoogle(account);
-
+                //make request firebase
             } catch (ApiException e){
                 e.printStackTrace();
             }
@@ -105,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                         progressBar.setVisibility(View.INVISIBLE);
                         Log.w("TAG" , "signin failure", task.getException());
 
-                        Toast.makeText(this, "SignIn Failed!", Toast.LENGTH_SHORT);
+                        Toast.makeText(this, "SignIn Failed", Toast.LENGTH_SHORT).show();
                         updateUI(null);
                     }
                 });
@@ -115,23 +120,21 @@ public class MainActivity extends AppCompatActivity {
 
         if(user != null){
 
-            String name = user.getDisplayName();
-            String email = user.getEmail();
             String photo = String.valueOf(user.getPhotoUrl());
 
-            text.append("Info: \n");
-            text.append(name + "\n");
-            text.append(email);
 
             Picasso.get().load(photo).into(image);
-            btn_login.setVisibility(View.VISIBLE);
-            btn_logout.setVisibility(View.INVISIBLE);
-
+            btn_login.setVisibility(View.INVISIBLE);
+            btn_logout.setVisibility(View.VISIBLE);
+            btn_join.setVisibility(View.VISIBLE);
+            text.setVisibility(View.VISIBLE);
 
         } else {
             Picasso.get().load(R.drawable.logo).into(image);
             btn_login.setVisibility(View.VISIBLE);
             btn_logout.setVisibility(View.INVISIBLE);
+            btn_join.setVisibility(View.INVISIBLE);
+            text.setVisibility(View.INVISIBLE);
 
         }
     }

@@ -4,4 +4,6 @@
     <string name="google_map_api_key"> AIzaSyBLGQ8JpPsXOmwbkBrjMsa4U8Hou84CRnA </string>
     <string name="login_with_google">Login With Google</string>
     <string name="logout">Logout</string>
+    <string name="enter">Enter</string>
+    <string name="entermsg">Press Enter To Continue</string>
 </resources>
